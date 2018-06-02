@@ -1,0 +1,20 @@
+h1 = @item.name
+
+h2 Location
+
+ul
+  - parent = @item.location
+  li = link_to(parent.name, parent.url, html_options = {})
+
+
+- if @item.description?
+  h2 Description
+  ul
+    - @item.description.each do |filename|
+      li = filename.basename
+
+- if @item.content?
+  h2 Content
+  ul
+    - @item.content.each do |child|
+      li = link_to(child.name, child.url, html_options = {})

@@ -1,0 +1,14 @@
+h1 Locations
+
+
+- if @item.description?
+  h2 Description
+  ul
+    - @item.description.each do |filename|
+      li = filename.basename
+
+- if @item.content?
+  h2 Places
+  ul
+    - @item.content.each do |child|
+      li = link_to(child.name, child.url, html_options = {})
