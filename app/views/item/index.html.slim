@@ -1,0 +1,10 @@
+h1 Items
+
+table style="width:100%"
+  tr
+    th Name
+    th Location
+  - @items.each do |i|
+    tr
+      td = i.name
+      td = i.location.name
