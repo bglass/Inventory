@@ -1,3 +1,5 @@
+include FileSystem
+
 class Attachment < Pathname
 
   def self.create(path)
@@ -17,8 +19,21 @@ end
 
 class Image < Attachment
 
+
   def view
     "Image: <img src='#{to_s}' />"
   end
 
+  def url
+    URI.encode ("/Inventory/" + relative_path.to_s)
+  end
+
+  def thumb(arg)
+    image.thumb(arg)
+  end
+
+  def image
+    Dragonfly.app.fetch_file to_s
+  end
+  
 end

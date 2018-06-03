@@ -6,12 +6,10 @@ ul
   - parent = @item.location
   li = link_to(parent.name, parent.url, html_options = {})
 
-- binding.pry
-- if @item.attachment?
+- if @item.attachments?
   h2 Description
-  ul
-    - @item.attachment.each do |filename|
-      li == filename.view
+  - @item.attachments.each do |filename|
+    = link_to(image_tag(filename.thumb("150x150").url), filename.image.url)
 
 - if @item.content?
   h2 Content

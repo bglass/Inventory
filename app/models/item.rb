@@ -8,11 +8,11 @@ class Item < Pathname
     basename
   end
 
-  def attachment?
-    attachment.count > 0
+  def attachments?
+    attachments.count > 0
   end
 
-  def attachment
+  def attachments
     child_files.map{|c| Attachment.create(c) }.compact
   end
 
@@ -32,9 +32,14 @@ class Item < Pathname
     Item.new(parent)
   end
 
-
   def relative_path
     relative_path_from Pathname(Rails.application.config.inventory_root).expand_path
   end
+
+  def image
+    attachments.first
+  end
+
+
 
 end

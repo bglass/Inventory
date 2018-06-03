@@ -2,9 +2,13 @@ h1 Items
 
 table style="width:100%"
   tr
+    th Photo
     th Name
+    th Photo
     th Location
   - @items.each do |i|
     tr
+      td = image_tag(i.image.thumb("30x30").url) if i.image
       td = link_to(i.name, i.url, html_options = {})
+      td = image_tag(i.location.image.thumb("30x30").url) if i.location.image
       td = link_to(i.location.name, i.location.url, html_options = {})

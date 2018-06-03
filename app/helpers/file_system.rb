@@ -24,4 +24,9 @@ module FileSystem
     basename extname
   end
 
+  def relative_path
+    relative_path_from Pathname(Rails.application.config.inventory_root).expand_path
+  end
+
+
 end
