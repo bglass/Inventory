@@ -1,10 +1,10 @@
 h1 Locations
 
 
-- if @item.description?
+- if @item.attachment?
   h2 Description
   ul
-    - @item.description.each do |filename|
+    - @item.attachment.each do |filename|
       li = filename.basename
 
 - if @item.content?

@@ -6,5 +6,5 @@ table style="width:100%"
     th Location
   - @items.each do |i|
     tr
-      td = i.name
-      td = i.location.name
+      td = link_to(i.name, i.url, html_options = {})
+      td = link_to(i.location.name, i.location.url, html_options = {})

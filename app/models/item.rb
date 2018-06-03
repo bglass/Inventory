@@ -8,12 +8,12 @@ class Item < Pathname
     basename
   end
 
-  def description?
-    description.count > 0
+  def attachment?
+    attachment.count > 0
   end
 
-  def description
-    child_files
+  def attachment
+    child_files.map{|c| Attachment.create(c) }.compact
   end
 
   def content?
